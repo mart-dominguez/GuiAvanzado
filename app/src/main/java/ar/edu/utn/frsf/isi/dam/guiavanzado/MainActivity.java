@@ -1,5 +1,6 @@
 package ar.edu.utn.frsf.isi.dam.guiavanzado;
 
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -11,7 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Fragmento1.OnFragmentInteractionListener {
+
+
+    @Override
+    public void onFragmentInteraction(Integer valor) {
+
+    }
+
     private String[] opciones;
     private ListView listaMenu;
     private DrawerLayout miDrawerLayout;
@@ -46,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
         // Create a new fragment and specify the planet to show based on position
        if(position%2==0) fragment = new Fragmento1();
         else fragment = new Fragmento2();
-       // Bundle args = new Bundle();
-        //args.putInt(Fragmento1.ARG_PLANET_NUMBER, position);
-        //fragment.setArguments(args);
+        Bundle args = new Bundle();
+        args.putInt("valor", position);
+        fragment.setArguments(args);
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -61,4 +69,5 @@ public class MainActivity extends AppCompatActivity {
         setTitle(opciones[position]);
         miDrawerLayout.closeDrawer(listaMenu);
     }
+
 }
