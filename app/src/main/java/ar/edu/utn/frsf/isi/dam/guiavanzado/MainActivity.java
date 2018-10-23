@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements Fragmento1.OnFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+      //  Toolbar t =  (Toolbar) findViewById(R.id.miToolbar);
+     //   setSupportActionBar(t);
         opciones = getResources().getStringArray(R.array.opcionesMnu);
         listaMenu = (ListView) findViewById(R.id.left_drawer);
         miDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
